@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+	<div class="row">
+		{% if products %}
+
+		{% for product in products %}
+		<div class="col-lg-3 col-md-4 col-6 mb-5" id="sanpham" style="transition: 0.2s ease-in;">
+			<a href= "{% url 'product' product.pk %}" >
+				<img class="thumbnail" src="{{product.imageURL}}">
+			</a>
+			<div class="box-element product">
+				<h6><strong>{{product.name}}</strong></h6>
+				<hr>
+
+				<button data-product="{{product.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+
+				<h4 style="display: inline-block; float: right"><strong>${{product.price}}</strong></h4>
+				
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+
+	<div class="pagination justify-content-center mb-4">
+        <span class="step-links">
+            {% if products.has_previous %}
+                <a href="?query={{ query }}&page={{ products.previous_page_number }}">Previous</a>
+            {% endif %}
+        </span>
+     
+        <span class="current">
+            Page {{ products.number }} of {{ products.paginator.num_pages }}.
+        </span>
+         
+        <span>
+            {% if products.has_next %}
+                <a href="?query={{ query }}&page={{ products.next_page_number }}">Next</a>
+            {% endif %}
+        </span>
+    </div>
+
+	{% else %}
+		<p>No Products </p>
+	{% endif %}
+
+{% endblock content %}

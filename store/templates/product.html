@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+	<div class="row">
+		<div class="media">
+            <img src="{{product_info.imageURL}}" class="align-self-center mr-3 " style="max-height:350px">
+            <div class="media-body ml-4">
+                <h1>{{product_info.name}}</h1>
+                <h5><strong>Tác giả: </strong>{{product_info.author}}</h5>
+                <h5><strong>Thể loại: </strong>{{product_info.category}}</h5>
+                <h5><strong>Còn lại: </strong>{{product_info.quantity}} quyển</h5>
+                <h5 style="text-align:justify"><strong>Nội dung:</strong>{% lorem 1 p random %}</h5>
+                <button data-product="{{product_info.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+                {% if product_info.sale_price%}
+                    <h2 style="display: inline-block; float: right; color: red; margin-right:30px;"><strong> &emsp;${{product_info.price}}</strong></h2>
+                    <h2 style="display: inline-block; float: right;"><strong><del>${{product_info.old_price}} </del></strong></h2>
+				{% else %}
+					<h2 style="display: inline-block; float: right;"><strong>${{product_info.old_price}}</strong></h2>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+
+
+{% endblock content %}
