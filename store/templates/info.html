@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+	<div id="carouselExampleControls" class="carousel slide mb-5" data-ride="carousel">
+		<div class="carousel-inner">
+		<div class="carousel-item active">
+			<img class="d-block w-100" src="{% static 'img/slide1.webp' %}" alt="First slide">
+		</div>
+		<div class="carousel-item">
+			<img class="d-block w-100" src="{% static 'img/slide2.jpg' %}" alt="Second slide">
+		</div>
+		<div class="carousel-item">
+			<img class="d-block w-100" src="{% static 'img/slide3.webp' %}" alt="Third slide">
+		</div>
+		</div>
+		<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+		<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		<span class="sr-only">Previous</span>
+		</a>
+		<a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+		<span class="carousel-control-next-icon" aria-hidden="true"></span>
+		<span class="sr-only">Next</span>
+		</a>
+	</div>
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-4">Cửa hàng NTN</h1>
+          <p class="lead" style="text-align: justify;">Xin chào mọi người, chào mừng các bạn đến với cửa hàng sách mang tên NTN ghép tên từ 3 thành viên của nhóm. 
+            Ý tưởng cửa hàng sách này đến với mình rất đơn giản, chỉ là tình cờ thích đọc sách và thấy mỗi câu chuyện 
+            mà sách mang lại cho chúng ta đều thật sâu sắc, ý nghĩa, dù nó chỉ toàn những con chữ nhưng lại cô đọng 
+            rất nhiều cảm xúc, đem lại cho độc giả nhiều tâm trạng. Đến với NTN các bạn sẽ được cảm nhận những 
+            quyển sách mới tinh, sự chăm sóc đặc biệt của đội ngũ nhân viên cửa hàng. 
+            Đừng ngại ngần mà hãy nhanh chóng đặt sách để trải nghiệm hành trình với chúng mình nhé!</p>
+        </div>
+      </div>
+
+	<div class="row mt-5 justify-content-center" style="border-top: 3px solid #939393">
+		<div class="col-md-4 d-flex justify-content-center col-12 litleppmn mt-4">
+			<img class="img" src="https://i.pinimg.com/474x/b0/bd/1e/b0bd1e12228e0d0db44f4b2530917878.jpg"/>Thanh Nga
+		</div>
+		<div class="col-md-4 d-flex justify-content-center col-12 litleppmn mt-4">
+			<img class="img" src="https://i.pinimg.com/474x/28/5a/b2/285ab23119338f926850c168016af8f6.jpg" />Tiểu Ngân
+		</div>
+		<div class="col-md-4 d-flex justify-content-center col-12 litleppmn mt-4">
+			<img class="img" src="https://i.pinimg.com/474x/50/92/8e/50928e25bd18f6638a85b1f440b0dd63.jpg"/>Lan Trinh
+		</div>
+	</div>
+
+
+{% endblock content %}

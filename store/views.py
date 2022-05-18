@@ -103,6 +103,28 @@ def profile(request):
      context = {'items':items, 'order':order,'cartItems':cartItems,'categories':categories,'ds':ds}
      return render(request, 'registration/profile.html',context)
 
+def main(request):
+     data = cartData(request)
+     cartItems = data['cartItems']
+     order = data['order']
+     items = data['items']
+     categories = Category.objects.all()
+
+     products = Product.objects.filter(is_special=1)[:4]
+
+     context = {'products':products,'cartItems':cartItems,'categories':categories,}
+     return render(request,'main.html', context)
+
+def info(request):
+     data = cartData(request)
+     cartItems = data['cartItems']
+     order = data['order']
+     items = data['items']
+     categories = Category.objects.all()
+
+     context = {'cartItems':cartItems,'categories':categories,}
+     return render(request,'info.html', context)
+
 
 class SiteRegisterOkView(TemplateView):
      template_name = 'registration/register_ok.html' 
@@ -212,15 +234,13 @@ def processOrder(request):
      order.save()
 
      for i in items:
-          product = Product.objects.get(id=i.product_id)
-          product.quantity = product.quantity - i.quantity
-          
+          i.product.quantity = i.product.quantity - i.quantity
+          i.product.save()
           if(i.product.price < i.product.old_price):
                i.price_buy = i.product.price
           else:
                i.price_buy = i.product.old_price
           i.save()
-     product.save()
 
      ShippingAddress.objects.create(
           customer=customer,

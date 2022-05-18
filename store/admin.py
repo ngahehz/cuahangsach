@@ -13,7 +13,7 @@ class OrderUI(admin.ModelAdmin):
 class ProductName(admin.ModelAdmin):
     form = ProductAdminForm
     list_display = ('name', 'price','old_price','quantity')
-    list_filter = ('category',('is_bestseller', admin.BooleanFieldListFilter),'quantity',)
+    list_filter = ('category',('is_special', admin.BooleanFieldListFilter),'quantity',)
     search_fields = ('name',)
 class ShippingAddressUI(admin.ModelAdmin):
     list_display = ('order', 'address','customer','telephoneNB')

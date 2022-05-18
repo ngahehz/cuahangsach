@@ -15,7 +15,7 @@ class Product(models.Model):
     author = models.CharField(max_length=200,null=True)
     image = models.ImageField(null=True,blank=True)
     description = models.TextField()
-    is_bestseller = models.BooleanField(default=False)
+    is_special = models.BooleanField(default=False)
     quantity = models.IntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
